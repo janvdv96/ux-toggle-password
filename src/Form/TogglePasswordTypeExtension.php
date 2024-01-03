@@ -91,7 +91,7 @@ final class TogglePasswordTypeExtension extends AbstractTypeExtension
 
         $controllerValues['hidden-icon'] = $options['hidden_icon'];
         $controllerValues['visible-icon'] = $options['visible_icon'];
-        $controllerValues['button-classes'] = json_encode($options['button_classes'], \JSON_THROW_ON_ERROR);
+        $controllerValues['button-classes'] = htmlspecialchars(json_encode($options['button_classes']), ENT_QUOTES, 'UTF-8');
 
         foreach ($controllerValues as $name => $value) {
             $view->vars['attr'][sprintf('data-%s-%s-value', $controllerName, $name)] = $value;
